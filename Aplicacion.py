@@ -28,13 +28,24 @@ def menu():
 
     if(opcionMenu == 1):
         import Registrar
-        
+        print("\t\t\t\t***REGISTRAR NUEVO PRODUCTO***")
+        nombre = input("Digite el nombre del nuevo producto: ")
+        precio = input("Digite el precio del nuevo producto: ")
+        codigo = input("Digite el código del nuevo producto: ")
+
+        Registrar.agregarProducto(codigo, nombre, precio)
+
     elif(opcionMenu == 2):
         import Eliminar
     elif(opcionMenu == 3):
         import Editar
     elif(opcionMenu == 4):
         import Listar
+
+        print("\nCódigo\t\t\t\tNombre\t\t\t\tPrecio")
+
+        print(Listar.listarProductos())
+
     elif(opcionMenu == 5):
         print("PROGRAMA FINALIZADO CON ÉXITO")
         exit()
