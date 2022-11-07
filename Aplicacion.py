@@ -16,6 +16,8 @@ def iniciarBD():
         pass
 
 def menu():
+    iniciarBD()
+
     print("\t\t\t\t\t**MENÚ DE OPCIONES**")
     print("1. Registrar\n" +
           "2. Eliminar\n" +
@@ -36,7 +38,5 @@ def menu():
     elif(opcionMenu == 5):
         print("PROGRAMA FINALIZADO CON ÉXITO")
         exit()
-
-    iniciarBD()
 
 menu()
