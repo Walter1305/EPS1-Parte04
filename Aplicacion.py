@@ -1,3 +1,20 @@
+import sqlite3
+def iniciarBD():
+    conexion = sqlite3.connect("FernandezSotelo_Almacen.db")
+
+    tabla_producto = """CREATE TABLE PRODUCTO(
+                     IDPRODUCTO INTEGER PRIMARY KEY AUTOINCREMENT,
+                     CODIGO TEXT UNIQUE,
+                     NOMBRE TEXT,
+                     PRECIO REAL
+                     )"""
+
+    try:
+        cursor = conexion.cursor()
+        cursor.execute(tabla_producto)
+    except sqlite3.OperationalError:
+        pass
+
 def menu():
     print("\t\t\t\t\t**MENÚ DE OPCIONES**")
     print("1. Registrar\n" +
@@ -19,5 +36,7 @@ def menu():
     elif(opcionMenu == 5):
         print("PROGRAMA FINALIZADO CON ÉXITO")
         exit()
+
+    iniciarBD()
 
 menu()
